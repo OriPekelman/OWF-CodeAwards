@@ -9,7 +9,8 @@
     <th>Live url</th>
     <th></th>
     <th></th>
-    <th></th>
+    <th></th>   
+    <th>votes</th>   
   </tr>
 
 <% @projects.each do |project| %>
@@ -22,6 +23,34 @@
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+<td><div class="votes-count">
+	<div class="count">
+		<%= project.votes_count %>
+	</div>
+	<div>Votes</div>
+</div>
+
+<div class="votes-count">
+	<div class="count">
+		<%= project.up_votes_count %>
+	</div>
+	<div>Up</div>
+</div>
+
+<div class="votes-count">
+	<div class="count">
+		<%= project.down_votes_count %>
+	</div>
+	<div>Down</div>
+</div>
+
+<div class="votes-point <%= project.votes_point >= 0 ? :positive : :negative %>">
+	<div class="count">
+		<%= project.votes_point %>
+	</div>
+	<div>Point</div>
+</div>
+</td>
   </tr>
 <% end %>
 </table>

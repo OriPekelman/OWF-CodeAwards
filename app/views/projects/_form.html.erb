@@ -19,14 +19,9 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :libraries %><br />
-    <%= f.text_area :libraries %>
-  </div>    
-
   <p>
-    <%= f.label :tags %><br />
-    <%= f.text_field :tags %>
+    <%= f.label :libraries %><br />
+    <%= text_field_tag 'post[libraries]' %>
   </p>
 
   <div class="field">

@@ -4,13 +4,17 @@
   <title>CodeAwards</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "fancybox" %>
   <%= csrf_meta_tags %>
 </head>
 <body>                
-    
+  
     <div class="container">
         <div class="sixteen columns">
           <ul class="hmenu">
+		 <% if user_signed_in? %>
+		Hello, 	<%= current_user.name %>  
+		<% end %>
             <%= render 'devise/menu/registration_items' %>
             <%= render 'devise/menu/login_items' %>
           </ul>
@@ -18,7 +22,7 @@
             <hr />
         </div>
         <div class="one-third column">
-            <p><%= render 'presentation' %></p>
+            <p><%= render 'layouts/presentation' %></p>
         </div>
         <div class="one-third column">
              <%= yield %>     

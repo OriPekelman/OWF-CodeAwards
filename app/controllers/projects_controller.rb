@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+#before_filter :authenticate_user!, :except => [:index, :show, :search]
   # GET /projects
   # GET /projects.json
   def index
@@ -13,7 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find_by_slug(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,14 +35,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])
+    @project = Project.find_by_slug(params[:id])
   end
 
   # POST /projects
   # POST /projects.json
-  def create
-    @project = Project.new(params[:project])
-
+  def create            
+#    @project = current_user.project.build(params[:project])
+     @project = Project.new(params[:project])
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -56,7 +57,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
-    @project = Project.find(params[:id])
+    @project = Project.find_by_slug(params[:id])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -72,12 +73,41 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project = Project.find(params[:id])
+    @project = Project.find_by_slug(params[:id])
     @project.destroy
 
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :ok }
     end
+  end   
+  
+  def unvote
+    @project = Project.find_by_slug(params[:id])
+    current_user.unvote(@project)
+    redirect_to project_path(@project), :notice => "Your unvote is successfully submitted."
   end
+
+  def vote_up
+    @project = Project.find_by_slug(params[:id])
+    current_user.vote(@project, :up)
+    redirect_to project_path(@project), :notice => "Your vote up is successfully submitted."
+  end
+
+  def vote_down
+    @project = Project.find_by_slug(params[:id])
+    current_user.vote(@project, :down)
+    redirect_to project_path(@project), :notice => "Your vote down is successfully submitted."
+  end
+
+  def search
+    keywords = params[:keywords] ||= ""
+    if keywords.strip.blank?
+      @projects = Project.all
+    else
+      @projects = Project.search(params[:keywords])
+    end
+    render :index, :layout => false
+  end
+  
 end

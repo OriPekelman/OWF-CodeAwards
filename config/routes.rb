@@ -21,9 +21,18 @@ CodeAwards::Application.routes.draw do
 
   resources :users, :only => [ :show, :edit, :update ]
 
-  resources :projects
 
+  resources :projects do
+    member do
+      get :vote_up
+      get :vote_down
+      get :unvote
+    end
 
+    collection do
+      post :search
+    end
+ end 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

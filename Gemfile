@@ -11,6 +11,13 @@ gem "mongoid-rspec", ">= 1.4.4", :group => :test
 gem "factory_girl_rails", ">= 1.2.0", :group => :test
 gem "devise", ">= 1.4.4"
 gem "bson_ext", ">= 1.3.1"
-gem "mongoid", ">= 2.2.0"
+gem "mongoid"
+gem 'scoped-search'
+gem 'mongoid_slug', :require => 'mongoid/slug'
+gem 'mongoid_search'
 gem "omniauth", ">= 0.2.6"
 gem "mongoid_taggable"
+gem "mongoid_taggable_with_context", "~> 0.7.2"
+gem 'voteable_mongo'            
+gem 'jquery-rails'
+gem 'rails3-jquery-autocomplete'
