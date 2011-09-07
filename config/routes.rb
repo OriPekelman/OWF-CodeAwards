@@ -1,5 +1,5 @@
 CodeAwards::Application.routes.draw do
-  resources :users, :only => [ :show, :edit, :update ]
+
 
   match '/auth/:provider/callback' => 'sessions#create'
 
@@ -13,8 +13,15 @@ CodeAwards::Application.routes.draw do
 
   root :to => "home#index"
 
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
+
   devise_for :users
-  resources :users, :only => :show
+
+  resources :users, :only => [ :show, :edit, :update ]
+
+  resources :projects
 
 
   # The priority is based upon order of creation:

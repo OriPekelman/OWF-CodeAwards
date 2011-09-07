@@ -6,16 +6,30 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <ul class="hmenu">
-    <%= render 'devise/menu/registration_items' %>
-    <%= render 'devise/menu/login_items' %>
-  </ul>
-  <%- flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-  <%- end -%>
+<body>                
+    
+    <div class="container">
+        <div class="sixteen columns">
+          <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+          </ul>
+<h1 id="the_code_awards_owf">The Code Awards @ OWF</h1>     
+            <hr />
+        </div>
+        <div class="one-third column">
+            <p><%= render 'presentation' %></p>
+        </div>
+        <div class="one-third column">
+             <%= yield %>     
+        </div>
+        <div class="one-third column">
+          <%- flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+          <%- end -%>
 
-<%= yield %>
+        </div>
 
+    </div><!-- container -->
 </body>
 </html>
