@@ -3,6 +3,7 @@
 <head>
   <title>CodeAwards</title>
   <%= stylesheet_link_tag    "application" %>
+  <script src= "http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "fancybox" %>
   <%= csrf_meta_tags %>
@@ -11,14 +12,28 @@
   
     <div class="container">
         <div class="sixteen columns">
-          <ul class="hmenu">
-		 <% if user_signed_in? %>
-		Hello, 	<%= current_user.name %>  
-		<% end %>
-            <%= render 'devise/menu/registration_items' %>
-            <%= render 'devise/menu/login_items' %>
+          <ul class="hmenu">          
+            <%#= render 'devise/menu/registration_items' %>
+	<div id="user_nav">  
+	  <% if current_user %>  
+	    Welcome, <%= current_user.name %>!  
+	<% if user_signed_in? %>
+	  <li>
+	  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+	  </li>
+	<% else %>
+	  <li>
+	  <%= link_to('Login', new_user_session_path)  %>  
+	  </li>
+	<% end %>
+	  <% else %>  
+	    <%= link_to "Sign in with GitHub",  omniauth_authorize_path(resource_name, :github) %>  
+            <%= link_to "Sign in with Twitter",  omniauth_authorize_path(resource_name, :twitter) %>  
+	  <% end %>  
+	</div>
           </ul>
-<h1 id="the_code_awards_owf">The Code Awards @ OWF</h1>     
+<h1 id="the_code_awards_owf"><a href ="/" title "Home">The Code Awards @ OWF</a></h1>   
+<p>We have three days to talk about open source, but without source code there is nothing to open. An Open Source event without some hacking going around is like a Chili Con Carne without meat. Like bubbleless champagne. Lasagna without Celery. The Open World Forum Code Awards, is the perfect occasion, to show your prowess while giving love to the Open Source projects that make your life so much better each day.</p>        
             <hr />
         </div>
         <div class="one-third column">

@@ -1,0 +1,17 @@
+<span id="actions">
+	<% unless user_signed_in? %>
+		Please login to vote.
+	<% else %>
+	<%if project.user != current_user %>
+	  	<% voted = current_user.vote_value(project) %>
+		
+		<% if voted != :up %>
+		  <%= link_to "+1", vote_up_project_path(project), :class => "vote_up" %>
+      		<% end %>
+	<%end%>
+
+  	<% if voted %>
+  		<%#= link_to "Unvote", unvote_project_path(project) %>
+  	<% end %>
+	<% end %>
+</span>

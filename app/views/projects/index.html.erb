@@ -1,59 +1,6 @@
-<h1>Listing projects</h1>
+<h1>The projects</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Libraries</th>
-    <th>Repository</th>
-    <th>Live url</th>
-    <th></th>
-    <th></th>
-    <th></th>   
-    <th>votes</th>   
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= project.description %></td>
-    <td><%= project.libraries %></td>
-    <td><%= project.repository %></td>
-    <td><%= project.live_url %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
-<td><div class="votes-count">
-	<div class="count">
-		<%= project.votes_count %>
-	</div>
-	<div>Votes</div>
-</div>
-
-<div class="votes-count">
-	<div class="count">
-		<%= project.up_votes_count %>
-	</div>
-	<div>Up</div>
-</div>
-
-<div class="votes-count">
-	<div class="count">
-		<%= project.down_votes_count %>
-	</div>
-	<div>Down</div>
-</div>
-
-<div class="votes-point <%= project.votes_point >= 0 ? :positive : :negative %>">
-	<div class="count">
-		<%= project.votes_point %>
-	</div>
-	<div>Point</div>
-</div>
-</td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => "projects/projects_table" %>
 
 <br />
 

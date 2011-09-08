@@ -1,0 +1,9 @@
+<% @projects.each do |project| %>
+  <div> Name:
+    <span><%= link_to project.name, project %></span>,    
+    <span>  <%if project.user %>  <%= project.user.name %> <%end%></span>
+    <span><%= project.libraries %></span>
+    <span><%= render :partial =>'projects/vote' , :locals => { :project => project } %> <strong><%= project.up_votes_count %></strong></span>
+    <span><% if user_signed_in? && @project && @project.user == current_user %>  <%= link_to 'Edit', edit_project_path(project) %>  <%end %></span>                                              
+  </div>
+<% end %>

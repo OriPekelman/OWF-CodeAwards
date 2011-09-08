@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-#before_filter :authenticate_user!, :except => [:index, :show, :search]
+before_filter :authenticate_user!, :except => [:index, :show, :search]
   # GET /projects
   # GET /projects.json
   def index
@@ -34,8 +34,13 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/edit
-  def edit
-    @project = Project.find_by_slug(params[:id])
+  def edit             
+      @project = Project.find_by_slug(params[:id])                   
+    if user_signed_in?  && @project.user == current_user
+      @project
+    else                                                             
+      redirect_to @project, notice: 'You can not change someone else\'s project' 
+    end
   end
 
   # POST /projects
@@ -43,6 +48,7 @@ class ProjectsController < ApplicationController
   def create            
 #    @project = current_user.project.build(params[:project])
      @project = Project.new(params[:project])
+     @project.user = current_user
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }

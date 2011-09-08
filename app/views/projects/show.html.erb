@@ -1,31 +1,7 @@
+  <%= @project.user.name %>    
+
 <p id="notice"><%= notice %></p>
-
-
-<div id="actions">
-	<% unless user_signed_in? %>
-		Please <%= link_to "log in", new_user_session_path %> to vote.<br/>
-	<% else %>
-
-	  <% voted = current_user.vote_value(@project) %>
-		
-		<% if voted != :up %>
-		  <%= link_to "Vote up", vote_up_project_path(@project) %>
-		<% else %>
-		  Vote up
-		<% end %>
-		|
-		<% if voted != :down %>
-		  <%= link_to "Vote down", vote_down_project_path(@project) %>
-		<% else %>
-		  Vote down
-		<% end %>
-
-  	<% if voted %>
-  	  |
-  		<%= link_to "Unvote", unvote_project_path(@project) %>
-  	<% end %>
-	<% end %>
-</div>
+<p><%= render :partial => 'vote' , :locals => { :project => @project }  %></p>  
 <p>
   <b>Name:</b>
   <%= @project.name %>
@@ -50,34 +26,11 @@
   <b>Live url:</b>
   <%= @project.live_url %>
 </p>
- <div class="votes-count">
-	<div class="count">
-		<%= @project.votes_count %>
-	</div>
-	<div>Votes</div>
-</div>
+<p>  <b>Votes:</b>                                    
+			<%= @project.up_votes_count %>
+</p>
 
-<div class="votes-count">
-	<div class="count">
-		<%= @project.up_votes_count %>
-	</div>
-	<div>Up</div>
-</div>
-
-<div class="votes-count">
-	<div class="count">
-		<%= @project.down_votes_count %>
-	</div>
-	<div>Down</div>
-</div>
-
-<div class="votes-point <%= @project.votes_point >= 0 ? :positive : :negative %>">
-	<div class="count">
-		<%= @project.votes_point %>
-	</div>
-	<div>Point</div>
-</div>
-
-
+<% if @project.user==current_user %> |
 <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %> |
 <%= link_to 'Back', projects_path %>

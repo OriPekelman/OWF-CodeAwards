@@ -1,13 +1,22 @@
 CodeAwards::Application.routes.draw do
+                                                
+#match 'users/auth/twitter/callback'  => 'sessions#create'
+#match 'users/auth/github/callback'  => 'sessions#create'
+devise_for :users, :controllers => { :omniauth_callbacks => "sessions"} 
 
+#match '/users/auth/github' => 'sessions#create'
+#                  
+                              
+#match '/auth/:provider/callback' => 'sessions#create'
+#
 
-  match '/auth/:provider/callback' => 'sessions#create'
-
-  match '/signin' => 'sessions#new', :as => :signin
-
-  match '/signout' => 'sessions#destroy', :as => :signout
-
-  match '/auth/failure' => 'sessions#failure'
+# 
+#  match '/users/sign_in' => 'sessions#new', :as => :signin
+#
+#  match '/users/signout' => 'sessions#destroy', :as => :signout
+#  match "/signout" => "sessions#destroy", :as => :signout  
+#
+#  match '/auth/failure' => 'sessions#failure'
 
   #get \"users\/show\"
 
@@ -16,8 +25,9 @@ CodeAwards::Application.routes.draw do
   devise_for :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   end
+  
 
-  devise_for :users
+
 
   resources :users, :only => [ :show, :edit, :update ]
 
