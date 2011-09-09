@@ -23,7 +23,8 @@ Proposed by:  <%if @project.user %>@project  <%= @project.user.name %>
   </div>
   <p>
     <%= f.label :libraries %><br />
-    <%= text_field_tag 'project[libraries]', @project.libraries, :class => "widget-ui" %>
+    <%= text_field_tag 'project[libraries]', @project.libraries, :class => "tag" %>                          
+<em>Input the names of projects or libraries you are using in your projet seperated by a comma. Use Enter to validate.</em>
   </p>
 
   <div class="field">

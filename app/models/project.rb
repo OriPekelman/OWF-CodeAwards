@@ -20,7 +20,7 @@ class Project
   field :description, :type => String
   field :repository, :type => String
   field :live_url, :type => String 
-  taggable :libraries                                                            
+  taggable :libraries, :separator => ','                                                          
   search_in :name, :description 
   
 def create 

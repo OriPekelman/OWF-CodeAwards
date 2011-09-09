@@ -19,5 +19,4 @@ gem "omniauth", "~> 0.3.0.rc3"
 gem "mongoid_taggable"
 gem "mongoid_taggable_with_context", "~> 0.7.2"
 gem 'voteable_mongo'            
-gem 'jquery-rails'
-gem 'rails3-jquery-autocomplete'
+
