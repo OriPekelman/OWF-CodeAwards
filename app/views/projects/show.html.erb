@@ -1,6 +1,4 @@
-  <%= @project.user.name %>    
-
-<p id="notice"><%= notice %></p>
+<%if  @project %>  <%= @project.user.name %>   
 <p><%= render :partial => 'vote' , :locals => { :project => @project }  %></p>  
 <p>
   <b>Name:</b>
@@ -30,7 +28,10 @@
 			<%= @project.up_votes_count %>
 </p>
 
-<% if @project.user==current_user %> |
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<% end %> |
+<% if @project.user==current_user %> 
+<%= link_to 'Edit', edit_project_path(@project) %>
+<% end %> &nbsp;
 <%= link_to 'Back', projects_path %>
+<%else%>
+Nothing here, move along
+ <%end%>

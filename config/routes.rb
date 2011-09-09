@@ -1,8 +1,17 @@
 CodeAwards::Application.routes.draw do
-                                                
-#match 'users/auth/twitter/callback'  => 'sessions#create'
-#match 'users/auth/github/callback'  => 'sessions#create'
+
+resources :projects do
+  member do
+   get :vote_up
+ end
+end   
+                                                 
+match 'users/auth/twitter/callback'  => 'sessions#create'
+match 'users/auth/github/callback'  => 'sessions#create'
+match 'users/auth/liveid/callback'  => 'sessions#create'
 devise_for :users, :controllers => { :omniauth_callbacks => "sessions"} 
+
+match "libraries" =>"libraries#index"
 
 #match '/users/auth/github' => 'sessions#create'
 #                  
@@ -32,17 +41,9 @@ devise_for :users, :controllers => { :omniauth_callbacks => "sessions"}
   resources :users, :only => [ :show, :edit, :update ]
 
 
-  resources :projects do
-    member do
-      get :vote_up
-      get :vote_down
-      get :unvote
-    end
 
-    collection do
-      post :search
-    end
- end 
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

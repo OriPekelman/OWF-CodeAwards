@@ -23,7 +23,7 @@ Proposed by:  <%if @project.user %>@project  <%= @project.user.name %>
   </div>
   <p>
     <%= f.label :libraries %><br />
-    <%= text_field_tag 'post[libraries]' %>
+    <%= text_field_tag 'project[libraries]', @project.libraries, :class => "widget-ui" %>
   </p>
 
   <div class="field">

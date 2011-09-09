@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
   <title>CodeAwards</title>
@@ -29,6 +29,7 @@
 	  <% else %>  
 	    <%= link_to "Sign in with GitHub",  omniauth_authorize_path(resource_name, :github) %>  
             <%= link_to "Sign in with Twitter",  omniauth_authorize_path(resource_name, :twitter) %>  
+            <%= link_to "Sign in with Windows Live",  omniauth_authorize_path(resource_name, :liveid) %>  
 	  <% end %>  
 	</div>
           </ul>

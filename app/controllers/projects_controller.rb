@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
 before_filter :authenticate_user!, :except => [:index, :show, :search]
   # GET /projects
   # GET /projects.json
-  def index
-    @projects = Project.all
+  def index     
 
+    @projects = Project.all
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {render :template => "projects/index"}
       format.json { render json: @projects }
     end
   end
@@ -14,6 +14,7 @@ before_filter :authenticate_user!, :except => [:index, :show, :search]
   # GET /projects/1
   # GET /projects/1.json
   def show
+
     @project = Project.find_by_slug(params[:id])
 
     respond_to do |format|

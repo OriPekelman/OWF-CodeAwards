@@ -15,7 +15,7 @@ gem "mongoid"
 gem 'scoped-search'
 gem 'mongoid_slug', :require => 'mongoid/slug'
 gem 'mongoid_search'
-gem "omniauth", ">= 0.2.6"
+gem "omniauth", "~> 0.3.0.rc3"
 gem "mongoid_taggable"
 gem "mongoid_taggable_with_context", "~> 0.7.2"
 gem 'voteable_mongo'            
