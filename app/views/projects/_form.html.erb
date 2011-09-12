@@ -22,7 +22,8 @@ Proposed by:  <%if @project.user %>@project  <%= @project.user.name %>
     <%= f.text_area :description %>
   </div>
   <p>
-    <%= f.label :libraries %><br />
+    <%= f.label "Please enter here the Libraries Projects that you relied upon" %><br />
+    <em>Remember when you win, they do!</em>
     <%= text_field_tag 'project[libraries]', @project.libraries, :class => "tag" %>                          
 <em>Input the names of projects or libraries you are using in your projet seperated by a comma. Use Enter to validate.</em>
   </p>

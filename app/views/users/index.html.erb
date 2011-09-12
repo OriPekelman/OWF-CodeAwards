@@ -1,0 +1,15 @@
+<% @users.each do |user| %>
+  <div> Name:
+    <span><%= link_to user.name, user %></span>,    
+  </div>
+<% end %>                
+
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Edit your account', edit_user_registration_path) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Sign up', new_user_registration_path)  %>
+  </li>
+<% end %>

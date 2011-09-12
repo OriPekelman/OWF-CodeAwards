@@ -35,17 +35,14 @@
 <p>We have three days to talk about open source, but without source code there is nothing to open. An Open Source event without some hacking going around is like a Chili Con Carne without meat. Like bubbleless champagne. Lasagna without Celery. The Open World Forum Code Awards, is the perfect occasion, to show your prowess while giving love to the Open Source projects that make your life so much better each day.</p>        
             <hr />
         </div>
-        <div class="one-third column">
-            <p><%= render 'layouts/presentation' %></p>
-        </div>
-        <div class="one-third column">
-             <%= yield %>     
-        </div>
-        <div class="one-third column">
+        <div class="one-third column">         
           <%- flash.each do |name, msg| -%>
             <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
           <%- end -%>
-
+            <p><%= render 'layouts/presentation' %></p>
+        </div>
+        <div class="two-thirds column">
+             <%= yield %>     
         </div>
 
     </div><!-- container -->

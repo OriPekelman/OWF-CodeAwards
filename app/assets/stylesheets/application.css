@@ -323,7 +323,7 @@ ul.hmenu li {
 		font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #777;
 		margin: 0;
-		width: 210px;
+		width: 410px;
 		max-width: 100%;
 		display: block;
 		margin-bottom: 20px;
@@ -347,7 +347,7 @@ ul.hmenu li {
 		font-weight: bold;
 		font-size: 13px;  }
 	select {
-		width: 220px; }
+		width: 440px; }
 	input[type="checkbox"] {
 		display: inline; }
 	label span,
