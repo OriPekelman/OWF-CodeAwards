@@ -37,7 +37,7 @@ before_filter :authenticate_user!, :except => [:index, :show, :search]
   # GET /projects/1/edit
   def edit             
       @project = Project.find_by_slug(params[:id])                   
-    if user_signed_in?  && @project.user == current_user
+    if (user_signed_in?  && @project.user == current_user ) ||(can? :manage, @project) 
       @project
     else                                                             
       redirect_to @project, notice: 'You can not change someone else\'s project' 

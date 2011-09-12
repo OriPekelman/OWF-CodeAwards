@@ -2,16 +2,26 @@ class UsersController < ApplicationController
 before_filter :authenticate_user!, :except => [:index, :show]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])     
+    @projects = Project.where(:user_id => params[:id]).
+                                        order_by(:up_count.desc)
   end
+         
+  def create
+    raise "hell"
+  end
+               
+     def new
+       raise "hell"
+     end
      
    def index
      @users = User.all
    end
 
-  def edit
-    @user = current_user
-    #User.find(params[:id])
+  def edit    
+    @user = params[:id].present?  && (can? :manage, @users) ? User.find(params[:id]) : current_user
+      
   end
   
   def update

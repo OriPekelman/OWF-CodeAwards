@@ -1,5 +1,2 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.inspect %>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<h2><%= @user.name %></h2>
+<%= render :partial => "projects/projects_table" %>     

@@ -29,6 +29,9 @@
             <%= link_to "Sign in with Twitter",  omniauth_authorize_path(resource_name, :twitter) %>  
             <%= link_to "Sign in with Windows Live",  omniauth_authorize_path(resource_name, :liveid) %>  
 	  <% end %>  
+	  <% if can? :manage, @users %>
+		<h1>GOD MODE</h1>
+	  <% end %>
 	</div>
           </ul>
 <h1 id="the_code_awards_owf"><a href ="/" title "Home">The Code Awards @ OWF</a></h1>   
