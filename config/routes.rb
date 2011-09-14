@@ -19,12 +19,12 @@ CodeAwards::Application.routes.draw do
   
   root :to => "home#index"
   
-#  devise_for :users do
-#    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
-#  end
+  devise_for :users do
+    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
 
-  match 'users/edit/:id'  => 'users#edit'
-  
+  match 'users/:id/edit'  => 'registrations#edit'
+
   resources :users                                                       
   devise_for :users, :controllers => {:registrations => "registrations"} 
   resources :authentications

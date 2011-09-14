@@ -22,4 +22,9 @@ class RegistrationsController < ApplicationController
       redirect_to new_user_registration_url
     end
   end
+  
+  def edit    
+    @user = params[:id].present?  && (can? :manage, @users) ? User.find(params[:id]) : current_user
+    render  'devise/registrations/edit'
+  end
 end

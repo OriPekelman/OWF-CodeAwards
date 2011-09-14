@@ -5,6 +5,6 @@
     <span> is using <%= project.libraries %></span>
     <span class="action_vote"><%= render :partial =>'projects/vote' , :locals => { :project => project } %> <strong><%= project.up_votes_count %></strong></span>                                                    
 	</h3>
-    <span><% if (user_signed_in? && @project && @project.user == current_user) ||  (can? :manage, @projects) %>  <%= link_to 'Edit', edit_project_path(project) %>  <%end %></span>                                              
+    <span><% if (user_signed_in? && @project && @project.user == current_user) ||  (can? :manage, Project) %>  <%= link_to 'Edit', edit_project_path(project) %>  <%end %></span>                                              
   </div>
 <% end %>

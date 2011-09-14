@@ -1,13 +1,14 @@
 <% @users.each do |user| %>
 <ul>
-    <li><%= link_to user.name, user %></li>
+    <li><%= link_to user.name, user %> <% if can? :manage, User %>  : <%= link_to "Edit User", edit_user_path(user) %>  <% end %>
+  </li>
 </ul>
 <% end %>                  
 <ul>
 	<hr />
 <% if user_signed_in? %>
 
-    <% if can? :manage, @users %>
+    <% if can? :manage, User %>
 <li>
      <%= link_to "Add User", new_user_path %>
 </li>
