@@ -1,11 +1,12 @@
-<h2>Projects</h2>
+<h2>The projects</h2> 
 <% @projects.each do |project| %>
-  <div> 
-    <h3><%= link_to project.name, project %> <span>, by </span><span><%= link_to project.user.name, project.user %></span>
-    <span> is using <%= project.libraries %></span>
-    <span class="action_vote"><%= render :partial =>'projects/vote' , :locals => { :project => project } %> <strong><%= project.up_votes_count %></strong></span>                                                    
-    <span><% if (user_signed_in? && @project && @project.user == current_user) ||  (user_signed_in? && (can? :manage, @project)) %>  <%= link_to 'Edit', edit_project_path(project) %>  <%end %></span>
-	</h3>
-                                              
+  <div class="project"> 
+	<h4 class="name"><%= link_to project.name, project %></h4> 
+	<span> by <%= link_to project.user.name, project.user %></span>  
+    	<% if !project.libraries.empty? %><div> is using <%= project.libraries %></div><% end %> 
+
+   <% if (user_signed_in? && @project && @project.user == current_user) ||  (user_signed_in? && (can? :manage, @project)) %>  <div> <%= link_to 'Edit', edit_project_path(project) %></div>  <%end %>
   </div>
+<div class="votes"><%= project.up_votes_count %> </div>
+<div class="action_vote"><%= render :partial =>'projects/vote' , :locals => { :project => project } %></div>
 <% end %>

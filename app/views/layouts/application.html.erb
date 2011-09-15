@@ -10,26 +10,28 @@
   
     <div class="container">
         <div class="sixteen columns">
-          <ul class="hmenu">          
-            <%= render :partial =>  'devise/shared/links' %>
-	<div id="user_nav">  
-	   <%#= render :partial => "devise/menu/registration_items" %>  
-	</div>
-          </ul>
-<h1 id="the_code_awards_owf"><a href ="/" title "Home">The Code Awards @ OWF</a></h1>   
-<p>We have three days to talk about open source, but without source code there is nothing to open. An Open Source event without some hacking going around is like a Chili Con Carne without meat. Like bubbleless champagne. Lasagna without Celery. The Open World Forum Code Awards, is the perfect occasion, to show your prowess while giving love to the Open Source projects that make your life so much better each day.</p>        
+       
+			<div id="user_nav">  
+        		<%= render :partial =>  'devise/shared/links' %>
+			</div>
+
+<a href ="/" title "Home"><h1 id="the_code_awards_owf">The Code Awards @ OWF</h1></a>   
+<p id="presentation">We have three days to talk about <strong>open source</strong>, but without source <strong>code</strong> there is nothing to open. <br/>An Open Source event without some hacking going around is like a <strong>Chili Con Carne without meat</strong>. Like <strong>bubbleless champagne. Lasagna without Celery</strong>. The Open World Forum Code Awards, is the perfect occasion, to show your prowess while giving love to the Open Source projects that make your life so much better each day.</p>        
             <hr />
         </div>
         <div class="one-third column">         
           <%- flash.each do |name, msg| -%>
             <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
           <%- end -%>
-            <p><%= render 'layouts/presentation' %></p>
+		<%= render 'layouts/presentation' %>
         </div>
         <div class="two-thirds column">
              <%= yield %>     
         </div>
+	     <div class="three-thirds column"><div id="sponsors"><h4 id="the_code_awards_is_sponsored_by_microsoft_the_prizes_are_sponsored_by_hp">The Code Awards are Sponsored by Microsoft. </h4><h4>The prizes are sponsored by HP</h4></div><a title="Open World Forum" href="http://www.openworldforum.org"><img src= "/assets/owf.jpg" title="Open World Forum" /></a>
+		</div> 
+   </div><!-- container -->
+ 
 
-    </div><!-- container -->
 </body>
 </html>

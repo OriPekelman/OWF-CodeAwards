@@ -1,3 +1,85 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project {border-radius: 15px; padding:20px; background-color:#666; margin-bottom:20px; min-height:80px; }
+.project a{ text-align: center; color: #222; text-decoration:none;   text-shadow: 0px 2px 3px #999; color: #222;}
+.project .name a  {text-align: left; text-shadow: 0px 2px 3px  #999; color: #222;font-variant: small-caps; font-size:140%; ;}
+
+.votes {
+position:relative;
+display: block;      
+top:-160px;  
+left: 560px;
+width: 60px;
+height: 60px;
+background: #3a5575  ;
+border-radius: 30px;  
+box-shadow:  -5px -5px 5px #3a5575  ; 
+text-shadow: 0px 2px 3px #aaa; color: #ccc;  
+font-size: 30px; 
+text-indent:15px;
+vertical-align:baseline;
+clear:none;  
+float:left;
+
+overflow:hidden;
+} 
+.action_vote {
+position:relative;
+top:-150px; 
+left: 530px;
+display: block;
+clear:none;  
+float:left;
+}     
+ 
+.action_vote .logintovote { 
+ position:relative;
+ top:4px;
+ left:60px;
+ display:block; color:#333;
+ width:40px;	
+ font-size:12px;
+	background-color: #FFFFFF; opacity: 0.5;
+	border-radius: 4px; 
+	padding:8px;
+}	
+	
+	
+	.project {border: 1px solid #ddd;
+	background: -moz-linear-gradient(top, rgba(125, 125, 125, .35) 0%, rgba(10, 10, 10, .4) 100%);
+	background: -webkit-linear-gradient(top, rgba(125, 125, 125, .35) 0%,rgba(10, 10, 10, .4) 100%);
+	background: -o-linear-gradient(top, rgba(125, 125, 125, .35) 0%,rgba(10, 10, 10, .4) 100%);
+	background: -ms-linear-gradient(top, rgba(125, 125, 125, .35) 0%,rgba(10, 10, 10, .4) 100%);
+	background: linear-gradient(top, rgba(125, 125, 125, .35) 0%,rgba(10, 10, 10, .4) 100%);}
+	
+ #newproject a{ 
+	text-align:center; 
+	width:200px;
+	background: #EEE;
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%, rgba(0, 0, 0, .2) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255, 255, 255, .2)), color-stop(100%,rgba(0, 0, 0, .2)));
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%,rgba(0, 0, 0, .2) 100%);
+	background: -o-linear-gradient(top, rgba(255, 255, 255, .2) 0%,rgba(0, 0, 0, .2) 100%);
+	background: -ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%,rgba(0, 0, 0, .2) 100%);
+	background: linear-gradient(top, rgba(255, 255, 255, .2) 0%,rgba(0, 0, 0, .2) 100%);
+	border: 1px solid #AAA;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	padding: 4px 12px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #444;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(255, 255, 255, .75);
+	cursor: pointer;
+	margin-bottom: 20px;
+	line-height: 21px;
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	
+} 

@@ -1,9 +1,11 @@
+<ul>
 <% if  !user_signed_in? %> 
-<ul class="registration_links">
 <%- if devise_mapping.omniauthable? %>
+<li class="registration_links">Sign in with</li>
 <%- resource_class.omniauth_providers.each do |provider| %>
+
 <li class="social">
-	<%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %>
+	<%= link_to "#{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %>
 </li>
 <% end -%>       
 
@@ -15,15 +17,15 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
 <li class="nosocial">
-	<%= link_to "Sign up without a social account", new_registration_path(resource_name) %>
+	<%= link_to "Sign up", new_registration_path(resource_name) %>
 </li>
 <% end -%>
 <% end -%> 
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-<li class="forgotpasswor">
+<li class="forgotpassword">
 	<%= link_to "Forgot your password?", new_password_path(resource_name) %>
-<li>
+</li>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -31,7 +33,6 @@
 	<%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
 </li>
 <% end -%>
-
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
 <li>
 	<%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
@@ -41,9 +42,9 @@
 <% if can? :manage, User %>
 	<span style="background-color:red">GOD MODE</span>
  <% end %>
-	<li class="signout">
-		Signed in as <%= current_user.email %>. Not you?  
-		<%= link_to "Sign out", destroy_user_session_path %>  
-	</li>
+<li class="signout">
+ Signed in as <%= current_user.email %>. Not you?  
+ 	<%= link_to "Sign out", destroy_user_session_path %>  
+ </li>
 <% end %>
 </ul>

@@ -1,6 +1,6 @@
-<span id="actions">
+<span class="actions">
 	<% unless user_signed_in? %>
-		Please login to vote.
+		<span class="logintovote">Login to vote.</span>
 	<% else %>
 	<%if project && project.user != current_user %>
 	  	<% voted = current_user.vote_value(project) %>
