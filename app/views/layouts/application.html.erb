@@ -29,7 +29,7 @@
             <%= link_to "Sign in with Twitter",  omniauth_authorize_path(resource_name, :twitter) %>  
             <%= link_to "Sign in with Windows Live",  omniauth_authorize_path(resource_name, :liveid) %>  
 	  <% end %>  
-	  <% if (can? :manage, User) %>
+	  <% if (user_signed_in? && (can? :manage, User)) %>
 		<h1>GOD MODE</h1>
 	  <% end %>
 	</div>

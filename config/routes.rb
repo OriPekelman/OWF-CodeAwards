@@ -1,7 +1,6 @@
 CodeAwards::Application.routes.draw do
 
-  match 'users/'  => 'users#index'
-  
+ 
   resources :projects do
     member do
      get :vote_up
@@ -23,9 +22,7 @@ CodeAwards::Application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   end
 
-  match 'users/:id/edit'  => 'registrations#edit'
-
-  resources :users                                                       
+  resources :users                                                     
   devise_for :users, :controllers => {:registrations => "registrations"} 
   resources :authentications
 end

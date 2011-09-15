@@ -19,10 +19,15 @@ before_filter :authenticate_user!, :except => [:index, :show]
      @users = User.all
    end
 
-  def edit    
-    @user = params[:id].present?  && (can? :manage, @users) ? User.find(params[:id]) : current_user
-      
-  end
+   def edit         
+     if ( params[:id].present?  && (can? :manage, User) )  
+       @user = User.find(params[:id])  
+     else              
+       @user = User.find(params[:id])  
+       flash[:alert] = t(:fail)
+       redirect_to @user
+     end
+   end
   
   def update
     @user = User.find(params[:id])

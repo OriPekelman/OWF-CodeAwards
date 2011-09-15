@@ -1,6 +1,6 @@
 <% @users.each do |user| %>
 <ul>
-    <li><%= link_to user.name, user %> <% if can? :manage, User %>  : <%= link_to "Edit User", edit_user_path(user) %>  <% end %>
+    <li><%= link_to user.name, user %> <% if user_signed_in? && (can? :manage, User) %>  : <%= link_to "Edit User", edit_user_path(user.id) %>  <% end %>
   </li>
 </ul>
 <% end %>                  

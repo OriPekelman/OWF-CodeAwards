@@ -1,4 +1,4 @@
-Proposed by:  <%if @project.user %>@project  <%= @project.user.name %> 
+Proposed by:  <%if @project.user %>  <%= @project.user.name %> 
 <% else %><%=current_user.name %>  <%end%>
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
