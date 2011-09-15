@@ -51,7 +51,7 @@ before_filter :authenticate_user!, :except => [:index, :show, :search]
      @project = Project.new(params[:project])
      @project.user = current_user
     respond_to do |format|
-      if @project.save
+      if @project.save  
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else

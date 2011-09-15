@@ -4,7 +4,8 @@
     <h3><%= link_to project.name, project %> <span>, by </span><span><%= link_to project.user.name, project.user %></span>
     <span> is using <%= project.libraries %></span>
     <span class="action_vote"><%= render :partial =>'projects/vote' , :locals => { :project => project } %> <strong><%= project.up_votes_count %></strong></span>                                                    
+    <span><% if (user_signed_in? && @project && @project.user == current_user) ||  (user_signed_in? && (can? :manage, @project)) %>  <%= link_to 'Edit', edit_project_path(project) %>  <%end %></span>
 	</h3>
-    <span><% if (user_signed_in? && @project && @project.user == current_user) ||  (user_signed_in? && (can? :manage, @project)) %>  <%= link_to 'Edit', edit_project_path(project) %>  <%end %></span>                                              
+                                              
   </div>
 <% end %>

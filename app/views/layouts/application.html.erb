@@ -11,27 +11,9 @@
     <div class="container">
         <div class="sixteen columns">
           <ul class="hmenu">          
-            <%#= render 'devise/menu/registration_items' %>
+            <%= render :partial =>  'devise/shared/links' %>
 	<div id="user_nav">  
-	  <% if current_user %>  
-	    Welcome, <%= current_user.name %>!  
-	<% if user_signed_in? %>
-	  <li>
-	  <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-	  </li>
-	<% else %>
-	  <li>
-	  <%= link_to('Login', new_user_session_path)  %>  
-	  </li>
-	<% end %>
-	  <% else %>  
-	    <%= link_to "Sign in with GitHub",  omniauth_authorize_path(resource_name, :github) %>  
-            <%= link_to "Sign in with Twitter",  omniauth_authorize_path(resource_name, :twitter) %>  
-            <%= link_to "Sign in with Windows Live",  omniauth_authorize_path(resource_name, :liveid) %>  
-	  <% end %>  
-	  <% if (user_signed_in? && (can? :manage, User)) %>
-		<h1>GOD MODE</h1>
-	  <% end %>
+	   <%#= render :partial => "devise/menu/registration_items" %>  
 	</div>
           </ul>
 <h1 id="the_code_awards_owf"><a href ="/" title "Home">The Code Awards @ OWF</a></h1>   

@@ -2,7 +2,12 @@ module ApplicationHelper
 #  include ScopedSearch::Helpers
   def resource_name
     :user
-  end
+  end           
+
+  def   resource_class
+    Devise
+  end 
+
   
   def resource
     @resource ||= User.new
@@ -11,5 +16,6 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+  
   
 end
