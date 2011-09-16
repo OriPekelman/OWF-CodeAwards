@@ -66,4 +66,3 @@ tmp/*
 # keep OmniAuth service provider secrets out of the Git repo
 config/initializers/omniauth.rb
 config/initializers/devise.rb
-config/mongoid.yml                
