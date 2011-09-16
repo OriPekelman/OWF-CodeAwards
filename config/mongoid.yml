@@ -1,0 +1,29 @@
+mongohq:
+  uri: <%= ENV['MONGOHQ_URL'] %>
+#  host: staff.mongohq.com
+#  port: 10088
+#  database: codeawards
+#  username: codeawards
+#  password: plipitiplop
+
+development:
+  host: localhost
+  database: code_awards_development
+
+test:
+  host: localhost
+  database: code_awards_test
+
+# set these environment variables on your prod server
+production:
+  uri: <%= ENV['MONGOHQ_URL'] %>
+ # host: <%= ENV['MONGOID_HOST'] %>
+ # port: <%= ENV['MONGOID_PORT'] %>
+ # username: <%= ENV['MONGOID_USERNAME'] %>
+ # password: <%= ENV['MONGOID_PASSWORD'] %>
+ # database: <%= ENV['MONGOID_DATABASE'] %>
+ # slaves:
+ #   - host: slave1.local
+ #     port: 27018
+ #   - host: slave2.local
+ #     port: 27019
