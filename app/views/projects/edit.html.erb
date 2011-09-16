@@ -2,7 +2,8 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Show', @project %> |     
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Destroy', @project, confirm: 'Are you sure?', method: :delete %>
+<%= button_to "Delete", project_path(@project), :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %>
+
 <%= link_to 'Back', projects_path %>
