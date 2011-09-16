@@ -1,5 +1,4 @@
-h1.Codeawards
-========================    
+h1. Codeawards
 
 This is a quick and dirty voting application for the Open World Forum 2011 Code Awards
 
