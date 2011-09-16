@@ -20,3 +20,7 @@ gem "mongoid_taggable"
 gem "mongoid_taggable_with_context", "~> 0.7.2"
 gem 'voteable_mongo'            
 gem "cancan"
+
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+end
